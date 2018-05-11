@@ -7,11 +7,11 @@ package tile;
  */
 
 public class TileBase implements Tile {
-	private TileType tileType; //The type of this tile object
+	private TileEnum tileType; //The type of this tile object
 	private boolean occupied; //useful for tower tiles
 	
 	//constructor
-	public TileBase(TileType type) {
+	public TileBase(TileEnum type) {
 		tileType= type;
 		occupied = false;
 	}
@@ -20,7 +20,7 @@ public class TileBase implements Tile {
 	 * This method will return the type of the tile
 	 */
 	@Override
-	public TileType getType() {
+	public TileEnum getType() {
 		return tileType;
 	}
 
@@ -30,7 +30,7 @@ public class TileBase implements Tile {
 	 */
 	@Override
 	public void setOccupied() {
-		if (tileType == TileType.towerPath)
+		if (tileType == TileEnum.towerSpot)
 			occupied = true;
 	}
 
@@ -48,6 +48,11 @@ public class TileBase implements Tile {
 	@Override
 	public boolean isOccupied() {
 		return occupied;
+	}
+
+	@Override
+	public void setType(TileEnum newType) {
+		tileType = newType;
 	}
 
 
